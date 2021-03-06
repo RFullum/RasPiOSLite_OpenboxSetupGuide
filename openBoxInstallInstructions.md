@@ -57,7 +57,7 @@
 7. Update System
   - When rebooted, ssh in and update the system:
 
-`$: sudo apt update && sudo apt upgrade && sudo apt autoclean`
+  `$: sudo apt update && sudo apt upgrade && sudo apt autoclean`
 
 8. Update localizations:
   `$: sudo raspi-config`
