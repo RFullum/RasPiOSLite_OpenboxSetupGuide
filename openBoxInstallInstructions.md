@@ -81,7 +81,7 @@
 
 12. Finish Setting up Pi
   - Change admin password
-    $: sudo raspi-config
+    `$: sudo raspi-config`
     - System Options...
     - Password
 ![password](passwordchange.png)
@@ -436,27 +436,27 @@
 ### Arduino IDE
 - Update your system:
 
-`sudo apt update && sudo apt upgrade && sudo apt autoclean`
+`$: sudo apt update && sudo apt upgrade && sudo apt autoclean`
 
 - Don't install via `apt`. It doesn't have the current version.
 - Download the [Linux Arm 32 bits](https://www.arduino.cc/en/software) from the [Arduino](https://www.arduino.cc/) site.
 - If you have an app like `Archive` that extracts `.tar` files and `.xy` compression, you can use that to extract the downloaded file. Otherwise, `cd` into the directory with the file and extract it in the command line:
 
-`tar xvf arduino-1.8.13-linuxarm.tar.xz`
+`$: tar xvf arduino-1.8.13-linuxarm.tar.xz`
 
 - Now you should have a folder `arduino-1.8.13` with the contents extracted inside it. This next step doesn't seem to be necessary when i've installed the Arduino IDE in Linux distros installed on Intel/AMD architectures. But, for some reason, on Raspberry Pi i find i need to do the next step for the IDE to run.
 
 - Move the `arduino-1.8.13` folder to the `/opt` directory:
 
-`sudo mv arduino-1.8.13 /opt`
+`$: sudo mv arduino-1.8.13 /opt`
 
 - Go to that directory:
 
-`cd /opt/arduino-1.8.13`
+`$: cd /opt/arduino-1.8.13`
 
 - Run the install script:
 
-`sudo ./install.sh`
+`$: sudo ./install.sh`
 
 - It's now installed and should run using the command:
 
@@ -500,9 +500,9 @@
 ### Juce Audio Framework
 - Update your system:
 
-`sudo apt update && sudo apt upgrade && sudo apt autoclean`
+`$: sudo apt update && sudo apt upgrade && sudo apt autoclean`
 
-- Download (Linux Juce and Projucer)[https://juce.com/get-juce/download] from the Juce website.
+- Download [Linux Juce and Projucer](https://juce.com/get-juce/download) from the Juce website.
 - Transfer the zip file to your RasPi via VNC
 - Move the zip file to your home directory:
 
@@ -516,7 +516,7 @@
 
 - Install the dependencies Juce needs:
 
-`sudo apt install clang freeglut3-dev libasound2-dev libcurl4-openssl-dev libfreetype6-dev libjack-jackd2-dev libx11-dev libxcomposite-dev libxcursor-dev libxinerama-dev libxrandr-dev mesa-common-dev webkit2gtk-4.0 ladspa-sdk`
+`$: sudo apt install clang freeglut3-dev libasound2-dev libcurl4-openssl-dev libfreetype6-dev libjack-jackd2-dev libx11-dev libxcomposite-dev libxcursor-dev libxinerama-dev libxrandr-dev mesa-common-dev webkit2gtk-4.0 ladspa-sdk`
 
 - Build the Juce Framework:
   - Change to the directory with the Projucer's Makefile
@@ -525,11 +525,11 @@
 
   - Build the makefile:
 
-  `make CXX=clang++`
+  `$: make CXX=clang++`
 
   or, if you want to speed it up a bit, you can use multiple proc cores:
 
-  `make CXX=clang++ -j4`
+  `$: make CXX=clang++ -j4`
 
   - Change to the newly created build directory:
 
@@ -541,7 +541,7 @@
 
   - Test the Projucer runs by running the executable:
 
-  `./Projucer`
+  `$: ./Projucer`
 
   - If you're using Thunar, you can also go to this directory, right click on the Projucer file, and click `Execute` in the dropdown menu.
 
@@ -573,7 +573,7 @@
 - Install the Code::Blocks IDE
   - The version available for the RasPI via `apt` isn't the latest. The latest release is 20.x. The version in `apt` on the RasPi's repo is 17.x. But, it works, so i just use it.
 
-  `sudo apt install codeblocks`
+  `$: sudo apt install codeblocks`
 
 - You're now set up to use Juce on your RasPi. Some things to note:
   - Juce doesn't automatically link and launch to CodeBlocks the way it does with XCode or VisualStudio. You need to make a Juce project, set up the Projucer settings and the CodeBlocks exporter, and then save the Juce project. Then open CodeBlocks separately, navigate to the Juce project's folder, and open the CodeBlocks project file `juceProjectName.cbp`
@@ -604,7 +604,7 @@
 
   Then run the project. Here the project was named `ProjectName`:
 
-  `./ProjectName`
+  `$: ./ProjectName`
 
 - Helpful links:
   - Matthew Hamilton's [Juce on Raspberry Pi Guide](https://mhamilt.github.io/blog/2018/10/23/JUCE-on-Pi.html)
@@ -756,7 +756,7 @@
 
   - This script first looks at the wpa_supplicant on startup. If it can't join any of the networks in the wpa_supplicant, it creates its own WiFi hotspot. Create the file:
 
-  `sudo nano /usr/bin/autohotspot`
+  `$: sudo nano /usr/bin/autohotspot`
 
   - Add the script text to the file:
 
